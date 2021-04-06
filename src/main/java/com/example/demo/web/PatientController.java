@@ -13,6 +13,7 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
+
     @GetMapping(path = "/index")
     public String index(){
         return "index";
