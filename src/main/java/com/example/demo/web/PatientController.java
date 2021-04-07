@@ -25,9 +25,15 @@ public class PatientController {
     @GetMapping(path = "/patients")
     public String listPatients(Model model,
            @RequestParam(name="page",defaultValue = "0") int page ,
-           @RequestParam(name = "size",defaultValue = "5") int size){
-        Page<Patient> pagePatients = patientRepository.findAll(PageRequest.of(page, size));
+           @RequestParam(name = "size",defaultValue = "5") int size,
+           @RequestParam(name="keyword",defaultValue = "") String mc){
+//        Page<Patient> pagePatients = patientRepository.findAll(PageRequest.of(page, size));
+        Page<Patient> pagePatients = patientRepository.findByNomContains(mc,PageRequest.of(page, size));
         model.addAttribute("patients",pagePatients.getContent());
+        model.addAttribute("pages",new int[pagePatients.getTotalPages()]);
+        model.addAttribute("currentPage",page);
+        model.addAttribute("keyword",mc);
+        model.addAttribute("size",size);a
         return "patients";
     }
 
