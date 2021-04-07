@@ -33,8 +33,28 @@ public class PatientController {
         model.addAttribute("pages",new int[pagePatients.getTotalPages()]);
         model.addAttribute("currentPage",page);
         model.addAttribute("keyword",mc);
-        model.addAttribute("size",size);a
+        model.addAttribute("size",size);
         return "patients";
     }
+
+    @GetMapping(path = "/deletePatient")
+    public String delete(Long id){
+        patientRepository.deleteById(id);
+        return "redirect:/patients";
+    }
+
+    @GetMapping(path = "/deletePatient1")
+    public String delete1(Long id,String keyword,int page,int size){
+        patientRepository.deleteById(id);
+        return "redirect:/patients?page="+page+"&size="+size+"&keyword="+keyword;
+    }
+
+    @GetMapping(path = "/deletePatient2")
+    public String delete2(Model model,Long id,int page , int size , String keyword){
+        patientRepository.deleteById(id);
+        return listPatients(model,page,size,keyword);
+    }
+
+
 
 }
