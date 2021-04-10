@@ -63,8 +63,8 @@ public class PatientController {
     }
 
     @PostMapping(path = "/savePatient")
-    public String savePatient(@Valid @ModelAttribute("patient") Patient  patient, BindingResult bindingResult){
-        if(bindingResult.hasErrors()) return "formPatient";
+    public String savePatient(@Valid Patient  patient, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){return "formPatient";}
         patientRepository.save(patient);
         return "formPatient";
     }

@@ -8,6 +8,8 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -27,6 +29,8 @@ public class Patient {
     private Date dateNaissance;
 //    private int score;
     private boolean malade;
+    @DecimalMin("3")
+    private int score;
 
 
 }

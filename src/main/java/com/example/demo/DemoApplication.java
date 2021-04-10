@@ -20,9 +20,9 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        patientRepository.save(new Patient(null,"Hassan",new Date(),false));
-        patientRepository.save(new Patient(null,"Mohamed",new Date(),false));
-        patientRepository.save(new Patient(null,"Samira",new Date(),true));
+        patientRepository.save(new Patient(null,"Hassan",new Date(),false,4));
+        patientRepository.save(new Patient(null,"Mohamed",new Date(),false,12));
+        patientRepository.save(new Patient(null,"Samira",new Date(),true,9));
 
         patientRepository.findAll().forEach(p -> {
             System.out.println(p.getNom());
