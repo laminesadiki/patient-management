@@ -1,6 +1,6 @@
 # activite-pratique-2
 
-##Some CMD Command to fix "8080 port already taken" issue
+### Some CMD Command to fix "8080 port already taken" issue
 
 1- Tap "netstat -ao |find /i "listening" to Check what processes are running at available ports.
 
@@ -8,7 +8,7 @@
 
 3 - Return application
 
-##To activate Validation
+### To activate Validation
 I must add the following dependency in pom.xml
 ```
 <dependency>
