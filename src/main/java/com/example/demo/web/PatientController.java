@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 public class PatientController {
@@ -57,6 +58,7 @@ public class PatientController {
 
     @GetMapping(path = "/formPatient")
     public String formPatient(Model model){
+//        model.addAttribute("patient",new Patient(null,"blabla",new Date(),true,23));
         model.addAttribute("patient",new Patient());
         return "formPatient";
     }
@@ -65,6 +67,13 @@ public class PatientController {
     public String savePatient(@Valid Patient  patient, BindingResult bindingResult){
         if(bindingResult.hasErrors()) return "formPatient";
         patientRepository.save(patient);
+        return "formPatient";
+    }
+
+    @GetMapping(path = "/editPatient")
+    public String editPatient(Model model,Long id){
+        Patient patient = patientRepository.findById(id).get();
+        model.addAttribute("patient",patient);
         return "formPatient";
     }
 

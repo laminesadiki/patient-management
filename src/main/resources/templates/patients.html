@@ -29,8 +29,14 @@
                     <td th:text="${p.dateNaissance}"></td>
                     <td th:text="${p.malade}"></td>
                     <td th:text="${p.score}"></td>
-                    <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sure de supprimer')"
-                           th:href="@{deletePatient1(id=${p.id},keyword=${keyword},page=${currentPage},size=${size})}">Delete</a>
+                    <td><a class="btn btn-danger"
+                           onclick="return confirm('Etes-vous sure de supprimer')"
+                           th:href="@{deletePatient1(id=${p.id},keyword=${keyword},page=${currentPage},size=${size})}">
+                           Delete</a>
+                    </td>
+                    <td><a class="btn btn-success"
+                           th:href="@{editPatient(id=${p.id})}">
+                        Edit</a>
                     </td>
                 </tr>
             </table>
