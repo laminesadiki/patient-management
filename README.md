@@ -2,9 +2,9 @@
 
 ### Some CMD Command to fix "8080 port already taken" issue
 
-1- Tap "netstat -ao |find /i "listening" to Check what processes are running at available ports.
+1- Tap "**netstat -ao |find /i "listening**" to Check what processes are running at available ports.
 
-2- Tap "Taskkill /F /IM #Process_Id (eg:2564)" To stop in windows
+2- Tap "**Taskkill /F /IM #Process_Id (eg:2564)**" to stop in windows
 
 3 - Return application
 
