@@ -22,7 +22,7 @@ public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 5 ,max = 15,message = "Nom incorrect")
+    @Size(min = 5 ,max = 15)
     private String nom;
     @Temporal(TemporalType.DATE) // C'est de JPA
     @DateTimeFormat(pattern = "yyyy-MM-dd") // C'est de Spring

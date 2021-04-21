@@ -23,6 +23,12 @@ public class DemoApplication implements CommandLineRunner {
         patientRepository.save(new Patient(null,"Hassan",new Date(),false,4));
         patientRepository.save(new Patient(null,"Mohamed",new Date(),false,12));
         patientRepository.save(new Patient(null,"Samira",new Date(),true,9));
+        patientRepository.save(new Patient(null,"Ahmed",new Date(),false,5));
+        patientRepository.save(new Patient(null,"Amine",new Date(),false,32));
+        patientRepository.save(new Patient(null,"youssra",new Date(),true,89));
+        patientRepository.save(new Patient(null,"Sawsan",new Date(),false,45));
+        patientRepository.save(new Patient(null,"Kawtar",new Date(),false,62));
+        patientRepository.save(new Patient(null,"Nissrine",new Date(),true,19));
 
         patientRepository.findAll().forEach(p -> {
             System.out.println(p.getNom());
