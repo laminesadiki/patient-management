@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class PatientController {
@@ -60,22 +61,39 @@ public class PatientController {
     public String formPatient(Model model){
 //        model.addAttribute("patient",new Patient(null,"blabla",new Date(),true,23));
         model.addAttribute("patient",new Patient());
+        model.addAttribute("mode","new");
         return "formPatient";
     }
 
     @PostMapping(path = "/savePatient")
-    public String savePatient(@Valid Patient  patient, BindingResult bindingResult){
+    public String savePatient(Model model,@Valid Patient  patient, BindingResult bindingResult){
         if(bindingResult.hasErrors()) return "formPatient";
         patientRepository.save(patient);
-        return "formPatient";
+        model.addAttribute("patient",patient);
+        return "confirmation";
     }
 
     @GetMapping(path = "/editPatient")
     public String editPatient(Model model,Long id){
         Patient patient = patientRepository.findById(id).get();
         model.addAttribute("patient",patient);
+        model.addAttribute("mode","edit");
         return "formPatient";
     }
+
+
+    @GetMapping("/listPatients")
+    @ResponseBody
+    public List<Patient> list(){
+        return patientRepository.findAll();
+    }
+
+    @GetMapping("/patients/{id}")
+    @ResponseBody
+    public Patient getOne(@PathVariable Long id){
+        return patientRepository.findById(id).get();
+    }
+
 
 
 

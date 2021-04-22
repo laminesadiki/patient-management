@@ -13,8 +13,10 @@
     <div class="container mt-5">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header" th:if="${patient.id==null}">Formulaire de saisie d'un nouveau patient</div>
-                <div class="card-header" th:if="${patient.id!=null}">Formulaire de mise à jour d'un patient</div>
+<!--                <div class="card-header" th:if="${patient.id==null}">Formulaire de saisie d'un nouveau patient</div>-->
+                <div class="card-header" th:if="${mode=='new'}">Formulaire de saisie d'un nouveau patient</div>
+<!--                <div class="card-header" th:if="${patient.id!=null}">Formulaire de mise à jour d'un patient</div>-->
+                <div class="card-header" th:if="${mode=='edit'}">Formulaire de mise à jour d'un patient</div>
                 <div class="card-body">
                     <form th:action="@{savePatient}" method="post">
                         <div class="form-group">
