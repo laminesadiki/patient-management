@@ -1,4 +1,4 @@
-# activite-pratique-2
+# Patient Management Project
 
 ### Some CMD Command to fix "8080 port already taken" issue
 
